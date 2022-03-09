@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static  %}
+{% block title %} News Xiva IT Center{% endblock %}
+{% block content %}
+    <section id="news">
+        <div class="services">
+            <div class="container">
+                <h3 class="title">Yangiliklar</h3>
+                <div class="box-items">
+                {% for article in articles %}
+                    <div class="box-item">
+                        <b style="text:left !important; color:#fff">{{article.created}}</b>
+                        <img src="{{ article.img.url }}">
+                        <h3 class="news-title">{{article.text}}</h3>
+                    </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+    </section>
+
+{% endblock %}

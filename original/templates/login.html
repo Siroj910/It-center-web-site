@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Xiva IT Center{% endblock %}</title>
+    <link rel="shortcut icon" href="https://it-park.uz/../favicons/favicon.ico" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="{% static 'css/normalize.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/flexboxgrid.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.min.css' %}">
+</head>
+<body>
+    <div class="login-root">
+        <div class="box-root flex-flex flex-direction--column" style="min-height: 100vh;flex-grow: 1;">
+            <div class="loginbackground box-background--white padding-top--64">
+                <div class="loginbackground-gridContainer">
+                    <div class="box-root flex-flex" style="grid-area: top / start / 8 / end;">
+                        <div class="box-root aa1" style=" flex-grow: 1;">
+                        </div>
+                    </div>
+                    <div class="box-root flex-flex" style="grid-area: 4 / 2 / auto / 5;">
+                        <div class="box-root box-divider--light-all-2 animationLeftRight tans3s" style="flex-grow: 1;"></div>
+                    </div>
+                    <div class="box-root flex-flex" style="grid-area: 6 / start / auto / 2;">
+                        <div class="box-root box-background--blue800" style="flex-grow: 1;"></div>
+                    </div>
+                    <div class="box-root flex-flex" style="grid-area: 7 / start / auto / 4;">
+                        <div class="box-root box-background--blue animationLeftRight" style="flex-grow: 1;"></div>
+                    </div>
+                    <div class="box-root flex-flex" style="grid-area: 8 / 4 / auto / 6;">
+                        <div class="box-root box-background--gray100 animationLeftRight tans3s" style="flex-grow: 1;"></div>
+                    </div>
+                    <div class="box-root flex-flex" style="grid-area: 2 / 15 / auto / end;">
+                        <div class="box-root box-background--cyan200 animationRightLeft tans4s" style="flex-grow: 1;"></div>
+                    </div>
+                    <div class="box-root flex-flex" style="grid-area: 3 / 14 / auto / end;">
+                        <div class="box-root box-background--blue animationRightLeft" style="flex-grow: 1;"></div>
+                    </div>
+                    <div class="box-root flex-flex" style="grid-area: 4 / 17 / auto / 20;">
+                        <div class="box-root box-background--gray100 animationRightLeft tans4s" style="flex-grow: 1;"></div>
+                    </div>
+                    <div class="box-root flex-flex" style="grid-area: 5 / 14 / auto / 17;">
+                        <div class="box-root box-divider--light-all-2 animationRightLeft tans3s" style="flex-grow: 1;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="box-root padding-top--24 flex-flex flex-direction--column" style="flex-grow: 1; z-index: 9;">
+                <div class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center"></div>
+                <div class="formbg-outer">
+                    <div class="formbg">
+                        <div class="formbg-inner padding-horizontal--48">
+                            <span class="padding-bottom--15">Saytga kirish</span>
+                            <b>Web sahifaga faqat Xiva IT Center o`quvchilari kira oladi</b>
+                            <form id="stripe-login" method="POST">
+                                {% csrf_token %}
+                                <div class="field padding-bottom--24">
+                                    <label for="text">{{login_form.username.label}}</label>
+                                    <input type="text" name="text">
+                                </div>
+                                <div class="field padding-bottom--24">
+                                    <div class="grid--50-50">
+                                        <label for="tel">{{login_form.password.label}}</label>
+
+                                    </div>
+                                    <input type="tel" name="number" >
+                                </div>
+                                <div class="field padding-b ottom--24">
+                                    <input type="submit" name="submit" value="Kiritish">
+                                </div>
+                                
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="{% static 'js/particles.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/app.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/thema-dark.js' %}"></script>
+</body>
+</html>

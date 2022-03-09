@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}About Xiva IT{% endblock %}
+{% block content %}
+    <!-- About start -->
+    <section class="about">
+      <div id="particles-js"></div>
+      <div id="hero">
+        <div class="about-container">
+          <div class="about-info">
+            <h1>Gallireya</h1>
+            <p>2019-yil 24-iyulda Toshkentda Oʻzbekiston Respublikasidagi birinchi IT Park ochildi. Ushbu qisqa vaqt ichida IT Park 28 yangi startaplar koʻrinishidagi birinchi mevalarini berdi, axborot texnologiyalari sohasida oʻnlab loyihalarni yaratdi, shuningdek, yoshlarni ragʻbatlantirish, ushbu sohaga qiziqishi va aholida kompyuter savodxonligini rivojlantirish uchun treninglar, “vorkshop” va “mitap”lar yaratdi.</p>
+            <input type="text" placeholder="Search">
+          </div>
+        </div>
+        <div class="slider-container">
+            <div class="gallery-img"></div>
+            <div class="slider">
+                <img src="{% static 'img/left-arrow.png' %}" alt="left-arrow" id="prev">
+                <div class="preview">
+                {% for img in img_list %}
+                    <img src="{{ img.img.url }}" alt="IT Center" class="active thumbnail">
+                {% endfor %}
+                </div>
+                <img src="{% static 'img/right-arrow.png' %}" alt="right-arrow" id="next">
+            </div>
+        </div>
+      </div>
+    </section>
+    <!-- About end -->
+
+    <!-- testimonial section start -->
+  <section class="testimonial-section section" id="testimonial">
+    <div class="container">
+      <div class="row">
+        <div class="section-title">
+          <h2 data-heading="O'qituvchilar">Bizning Jamoa</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="testi-box">
+          <div class="testi-slider outer-shadow">
+            <div class="testi-slider-container">
+              <!-- testi item start -->
+            {% for mentor in mentor_list %}
+                <div class="testi-item active">
+                    <img src="{{ mentor.img_mentor.url }}" style="border-radius: 50%;" alt="testimonial">
+                    <i class="fas fa-quote-left left"></i>
+                    <i class="fas fa-quote-right right"></i>
+                    <span>{{mentor.name}}<br> {{mentor.major}}</span>
+                    <p>Texnologik malakasi - {{mentor.technology}}</p>
+                </div>
+            {% endfor %}
+              
+            </div>
+          </div>
+          <div class="testi-slider-nav">
+            <span class="prev outer-shadow hover-in-shadow"><i class="fas fa-angle-left"></i></span>
+            <span class="next outer-shadow hover-in-shadow"><i class="fas fa-angle-right"></i></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- testimonial section end -->
+
+
+  <script>
+      /*----------------- testimonial slider -----------------*/ 
+
+    (() =>{
+
+    const sliderContainer = document.querySelector(".testi-slider-container"),
+    slides = sliderContainer.querySelectorAll(".testi-item"),
+    slideWidth = sliderContainer.offsetWidth,
+    prevBtn = document.querySelector(".testi-slider-nav .prev"),
+    nextBtn = document.querySelector(".testi-slider-nav .next"),
+    activeSlide = sliderContainer.querySelector(".testi-item.active");
+    let slideIndex = Array.from(activeSlide.parentElement.children).indexOf(activeSlide);
+
+    // set width af all slides
+    slides.forEach((slide) =>{
+    slide.style.width = slideWidth + "px";
+    })
+    // set width of sliderContainer
+    sliderContainer.style.width = slideWidth * slides.length + "px";
+
+    nextBtn.addEventListener("click", () =>{
+    if(slideIndex === slides.length-1){
+        slideIndex = 0;
+    }
+    else{
+        slideIndex++;
+    }
+    slider();
+    })
+
+    prevBtn.addEventListener("click", () =>{
+    if(slideIndex === 0){
+        slideIndex = slides.length-1;
+    }
+    else{
+        slideIndex--;
+    }
+    slider();
+    })
+
+    function slider(){
+    // deactivate existing active slides
+    sliderContainer.querySelector(".testi-item.active").classList.remove("active");
+    // active new slide
+    slides[slideIndex].classList.add("active");
+    sliderContainer.style.marginLeft = - (slideWidth * slideIndex) + "px";
+    }
+    slider();
+
+    })();
+  </script>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Services{% endblock %}
+{% block content %}
+  <!-- Servie-Section start -->
+  <div class="services">
+    <div class="container">
+      <h3 class="title">Biznng Kurslar</h3>
+
+      <div class="box-items">
+        {% for subject in courses %}
+        <div class="box-item">
+          <div class="kurs">
+            <span>{{ forloop.counter }}</span>
+            <i class="{{subject.icon_message}}"></i>
+            <h3>{{subject.course_name}}</h3>
+            <p>{{subject.technology}}</p>
+          </div>
+          <div class="duration">
+            <p><i class="fas fa-stopwatch"></i> Davomiyligi: <span>{{subject.course_term}} oy</span></p>
+            <p><i class="far fa-money-bill-alt"></i> Narxi: <span>{{subject.course_prize}} oy</span></p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+    </div>
+  </div>
+{% endblock %}
+
+
